@@ -1,0 +1,74 @@
+<% layout('layouts/boilerplate')%>
+
+  <div class="card mx-auto text-center mb-5" style="width: 40vw;">
+    <h3 class="card-header text-center" style="width: 40vw;">
+      <%= course.title %>
+    </h3>
+    <img
+      src="https://media.istockphoto.com/photos/hand-turns-a-dice-and-changes-the-word-offline-to-online-picture-id1141225975?b=1&k=20&m=1141225975&s=170667a&w=0&h=Rb_9nVSmDjyozC3iLwD0ffUWEkfx_pP2ArRkyhqq-r4="
+      class="card-img-top" alt="image">
+    <div class="card-body mx-auto mt-2">
+      <h5 class="card-title">Choose the mode of education</h5>
+      <form action="/courses/<%= course._id %>" method="POST">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" checked type="radio" name="assign[mode]" id="inlineRadio1" value="online">
+          <label class="form-check-label" for="inlineRadio1">Online</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="assign[mode]" id="inlineRadio2" value="offline">
+          <label class="form-check-label" for="inlineRadio2">Offline</label>
+        </div>
+        <br>
+        <hr class="my-3">
+        <div class="off d-flex flex-column">
+          <h5 class="card-title mb-0">Select your preferences</h5>
+          <p style="font-size: small; color: red;">(Note: Kindly choose different options in your preferences)</p>
+          <div class="input-group">
+            <label class="input-group-text" for="pref1">Preference 1</label>
+            <select class="form-select" name="assign[pref1]" id="pref1">
+              <option selected value="0">
+                <%=course.schedule[0]%>
+              </option>
+              <option value="1">
+                <%=course.schedule[1]%>
+              </option>
+              <option value="2">
+                <%=course.schedule[2]%>
+              </option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label class="input-group-text" for="pref2">Preference 2</label>
+            <select class="form-select" name="assign[pref2]" id="pref2">
+              <option value="0">
+                <%=course.schedule[0]%>
+              </option>
+              <option selected value="1">
+                <%=course.schedule[1]%>
+              </option>
+              <option value="2">
+                <%=course.schedule[2]%>
+              </option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label class="input-group-text" for="pref3">Preference 3</label>
+            <select class="form-select" name="assign[pref3]" id="pref3">
+              <option value="0">
+                <%=course.schedule[0]%>
+              </option>
+              <option value="1">
+                <%=course.schedule[1]%>
+              </option>
+              <option selected value="2">
+                <%=course.schedule[2]%>
+              </option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <button class="btn btn-primary mt-2 mx-auto">Confirm Preferences</button>
+      </form>
+      <a href="/courses/<%= course._id %>" class="btn btn-warning mt-2 mx-auto">Reset</a>
+    </div>
+  </div>

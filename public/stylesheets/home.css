@@ -1,0 +1,53 @@
+body {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://media.istockphoto.com/photos/close-up-programmer-man-hand-typing-on-keyboard-laptop-for-register-picture-id1055083194?b=1&k=20&m=1055083194&s=170667a&w=0&h=XsIncYWNHOW9tOZYvysQuuJE1PrJB9VWlk7XU4jV4Es=");
+    background-size: cover;
+    background-position: center;
+    text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+
+.cover-container {
+  max-width: 60vw
+}
+
+.nav-link {
+    padding: 0.25rem 0;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+    margin-left: 1rem;
+    border-bottom: 0.25rem solid transparent;
+}
+
+.nav-link:hover{
+    color: rgba(255,255,255,0.8);
+    border-bottom-color:rgba(255,255,255,0.5);
+}
+
+.nav-link.active {
+    color: white;
+    border-bottom-color:white;
+
+}
+
+h1 {
+    text-shadow: 0 0.1rem 0.1rem rgb(248 240 240 / 86%);
+}
+
+.lead {
+    font-size: medium;
+    margin: 2em;
+}
+
+.btn-secondary{
+    background-color: rgb(243, 236, 236);
+    color: #333;
+    text-shadow: none;
+}
+
+.btn-secondary:hover{
+    background-color: wheat;
+    color: rgb(15, 12, 12);
+    text-shadow: none;
+}

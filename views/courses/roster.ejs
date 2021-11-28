@@ -1,0 +1,82 @@
+<% layout('layouts/boilerplate')%>
+
+    <div class="container mx-auto" style="width: 60vw; padding: 0;">
+        <h1 style="text-align: center; text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);">Weekly Roster for <%= course.title %></h1>
+        <br><br>
+        <ul style="list-style-type: none; text-align: justify; padding: 0;" ;>
+            <li><strong>Description: </strong>
+                <%= course.description %>
+            </li>
+            <li><strong>Taught By: </strong>
+                <%= course.teacher%>
+            </li>
+            <li><strong>Total Seats: </strong>
+                <%= course.seats %>
+            </li>
+            <li><strong>Schedule: </strong>
+                <%= course.schedule %>
+            </li>
+        </ul>
+    </div>
+
+    <% let flag=false; // if anyone is assigned online class for (let v of course.assign) 
+    for (let v of course.assign) 
+    { 
+        if(v.slot !=4) 
+        { 
+            flag=true;
+            break; 
+        } 
+    } %>
+    
+   <% if (Object.keys(course.assign).length && flag) { %>
+        <br><br>
+        <p class="mx-auto" style="width: 50vw; font-size: small; color: brown;">
+            <marquee><em>Students whose names are not mentioned below have been alloted online classes.</em></marquee>
+        </p>
+
+        <div class="table-responsive mx-auto" style="width: 60vw;">
+            <table class="table table-bordered table-striped table-hover table-primary">
+                <thead>
+                    <tr>
+                        <th style="vertical-align: middle;">Student Name</th>
+                        <th style="vertical-align: middle;">Email</th>
+                        <th style="vertical-align: middle;">Doses</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% for (let i=0; i < 3; i++) { %>
+                        <tr>
+                            <th style="height: 5%; font-size: x-large;" colspan="3">
+                                <%=course.schedule[i]%>
+                            </th>
+                        </tr>
+
+                        <% for (let v of course.assign) { 
+                            if (v.slot === i) { %>
+                            <tr>
+                                <td>
+                                    <%= v.author.name %>
+                                </td>
+                                <td>
+                                    <%= v.author.email %>
+                                </td>
+                                <td>
+                                    <%= v.author.vaccination_status %>
+                                </td>
+                            </tr>
+                            <% } %>                        
+                        <% } %>
+
+                        <tr>
+                            <td style="font-size: x-large;" colspan="3"></td>
+                        </tr>
+
+                    <% } %>
+
+                </tbody>
+            </table>
+        </div>
+        <% } %>
+<br>

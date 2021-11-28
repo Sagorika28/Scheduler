@@ -1,0 +1,44 @@
+<% layout('layouts/boilerplate')%>
+
+    <div class="container mb-5">
+        <div class="cover-container d-flex justify-content-evenly p-3 mx-auto flex-column" style="
+        background-color: rgb(7, 29, 102);
+        height: 9rem;">
+            <h1 style="text-align: center; color: white;">View All Courses</h1>
+        </div>
+        <div class="cover-container bg-dark d-flex justify-content-evenly p-3 mx-auto flex-column">
+            <br>
+            <% for (let course of courses) { %>
+                <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card-body">
+                                <h5 class="card-header text-center mb-2">
+                                    <%= course.title %>
+                                </h5>
+                                <p class="card-text text-center">
+                                    <small class="text-muted">
+                                        Schedule: <%= course.schedule %>
+                                            <br>
+                                        Total Seats: <%= course.seats %>
+                                            <br>
+                                        Taught By: <%= course.teacher %>
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body mx-5">
+                                <p class="card-text" style="text-align: justify;">
+                                    Dummy description: <%= course.description %>
+                                </p>
+                                <a class="btn btn-success" href="/courses/<%= course._id %>">Schedule Class</a> &nbsp; &nbsp;
+                                <a class="btn btn-primary" href="/courses/<%= course._id %>/roster">View Roster</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <% }%>
+        </div>
+    </div>
